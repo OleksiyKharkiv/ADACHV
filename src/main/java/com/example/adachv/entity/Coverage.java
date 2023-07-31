@@ -1,4 +1,4 @@
-package com.example.adacversicherungpage.entity;
+package com.example.adachv.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,39 +6,34 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "policies")
+@Table(name = "coverages")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Policy {
+public class Coverage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String policyType;
-    private String conditions;
-    private Date createdAt;
-    private Date updatedAt;
+    private String coverageDescription;
+    private String insuranceConditions;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @JoinColumn(name = "policy_id")
+    private Policy policy;
 
     // Геттеры, сеттеры, конструкторы
 
     @Override
     public String toString() {
-        return "Policy{" +
+        return "Coverage{" +
                 "id=" + id +
-                ", policyType='" + policyType + '\'' +
-                ", conditions='" + conditions + '\'' +
-                ", registrationDate=" + createdAt +
-                ", modificationDate=" + updatedAt +
+                ", coverageDescription='" + coverageDescription + '\'' +
+                ", insuranceConditions='" + insuranceConditions + '\'' +
                 // Остальные атрибуты
                 '}';
     }
@@ -46,9 +41,9 @@ public class Policy {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Policy)) return false;
-        Policy policy = (Policy) o;
-        return Objects.equals(id, policy.id);
+        if (!(o instanceof Coverage)) return false;
+        Coverage coverage = (Coverage) o;
+        return Objects.equals(id, coverage.id);
     }
 
     @Override

@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>ADACVersicherungPage</artifactId>
+    <artifactId>ADACHV</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ADACVersicherungPage</name>
     <description>ADACVersicherungPage</description>

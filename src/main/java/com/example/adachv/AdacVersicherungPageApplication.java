@@ -1,4 +1,4 @@
-package com.example.adacversicherungpage;
+package com.example.adachv;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

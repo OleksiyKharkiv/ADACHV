@@ -1,4 +1,5 @@
-package com.example.adacversicherungpage.entity;
+package com.example.adachv.entity;
+
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,31 +10,27 @@ import lombok.Setter;
 import java.util.Objects;
 
 @Entity
-@Table(name = "coverages")
+@Table(name = "managers")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Coverage {
+public class Manager {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String coverageDescription;
-    private String insuranceConditions;
-
-    @ManyToOne
-    @JoinColumn(name = "policy_id")
-    private Policy policy;
+    private String fullName;
+    private String accessLevel;
 
     // Геттеры, сеттеры, конструкторы
 
     @Override
     public String toString() {
-        return "Coverage{" +
+        return "Manager{" +
                 "id=" + id +
-                ", coverageDescription='" + coverageDescription + '\'' +
-                ", insuranceConditions='" + insuranceConditions + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", accessLevel='" + accessLevel + '\'' +
                 // Остальные атрибуты
                 '}';
     }
@@ -41,9 +38,9 @@ public class Coverage {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Coverage)) return false;
-        Coverage coverage = (Coverage) o;
-        return Objects.equals(id, coverage.id);
+        if (!(o instanceof Manager)) return false;
+        Manager manager = (Manager) o;
+        return Objects.equals(id, manager.id);
     }
 
     @Override
